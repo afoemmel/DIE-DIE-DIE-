@@ -4,14 +4,32 @@
     <script>
     </script>
     <title> Plant Growth Sim </title>
+    <link rel="icon" type="image/x-icon" href="plant-pot.png">
+    <!--This is the favicon thing-->
     <style>
       #bg {
-        height=100%;
-        width=100%
+        height: 100%;
+        width: 100%;
+      }
+      #titlescreen {
+        width: 60%;
+        height: auto;
+        margin: auto;
+      }
+      body {
+        background-color: #faedcd;
       }
     </style>
   </head>
   <body>
-    <img src="titlescreen.pdf" id="bg">
+    <div id = "titleScreen"> 
+      <img src="titlescreen.jpeg" id="bg">
+      <!--This is the div for the titlescreen
+      It will be hidden used javascript to switch to other screens-->
+    </div>
+    <div id = "plantSelectScreen"> 
+      <!--New screen for selecting the type of plant 
+        (may not keep, could have random plant instead)-->
+    </div>
   </body>
 </html>
