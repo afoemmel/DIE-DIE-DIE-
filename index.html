@@ -1,22 +1,121 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <script>
+      var storyButton
+      window.onload = function() {
+        playButton = document.getElementById("menuB1");
+        storyButton = document.getElementById("menuB2");
+        titleScreen = document.getElementById("titleScreen");
+        plantSelectScreen = document.getElementById("plantSelectScreen");
+        console.log(plantSelectScreen.style.visibility);
+
+        playButton.addEventListener("mouseover", function() {
+          playButton.src = "play-button-white.png";
+        });
+        playButton.addEventListener("mouseout", function() {
+          playButton.src = "play-button.png";
+        });
+        playButton.addEventListener("click", function() {
+          titleScreen.style.visibility = "hidden";
+          plantSelectScreen.style.visibility = "visible";
+          console.log(titleScreen.visibility);
+        });
+
+        storyButton.addEventListener("mouseover", function() {
+          storyButton.src = "story-button-white.png";
+        });
+        storyButton.addEventListener("mouseout", function() {
+          storyButton.src = "story-button.png";
+        });
+      }
     </script>
     <title> Plant Growth Sim </title>
+    <link rel="icon" type="image/x-icon" href="plant-pot.png">
+    <!--This is the favicon thing-->
     <style>
+      #titleScreen {
+        width: 70%;
+        height: auto;
+        margin: auto;
+        position: relative;
+        z-index: 4;
+        position:relative;
+      }
       #bg {
-        height=100%;
-        width=100%;
+        width: 1000px; 
+        height: auto;
+        position:absolute;
+        image-rendering: pixelated;
+      }
+      #menuOptions {
+        height: 424px;
+        width: 384px;
+        position: absolute;
+        margin-bottom: 0px;
+        margin-top: 150px;
+      }
+      #titleScreenStick {
+        height: 424px;
+        width: 384px;
+        image-rendering: pixelated;
+        <!--Image is blurry if the above line isn't included-->
+        position: absolute;
+        z-index: 10;
+      }
+      #menuB1 {
+        /* menuB1 means menu button 1 */
+        height: 96px;
+        width: 384px;
+        position: absolute;
+        image-rendering: pixelated;
+        z-index: 11;
+        margin-top: 56px;
+      }
+      #menuB2 {
+        height: 96px;
+        width: 376px;
+        position: absolute;
+        image-rendering: pixelated;
+        z-index: 11;
+        margin-top: 192px;
+        padding-left: 4px;
+      }
+      #plantSelectScreen {
+        visibility: hidden;
+        width: 70%;
+        height: auto;
+        margin: auto;
+        position: relative;
+        z-index: 4;
+        position:relative;
+      }
+      #cross {
+        width: 1000px; 
+        height: auto;
+        position:absolute;
+      }
+      body {
+        background-color: #f5e9dc;
       }
     </style>
   </head>
   <body>
-  <canvas id = "game-panel" width="300" height="200"> 
-    { /* initializes canvas for game elements */
-      <img src="titlescreen.jpeg" id="bg">
-    }
-  </canvas>
+    <div id = "titleScreen"> 
+      <!--Main game div for the titlescreen-->
+      <img src="title-screen-bg.png" id="bg">
+      <div id = "menuOptions">
+        <img src="story-button.png" id="menuB2">
+        <img src="play-button.png" id="menuB1">
+        <!--<img src="stick-title-screen.png" id="titleScreenStick">-->
+      </div>
+      <!--This is the div for the titlescreen
+      It will be hidden used javascript to switch to other screens-->
+    </div>
+    <div id = "plantSelectScreen"> 
+      <img src="fish.jpeg" id="cross">
+      <!--New screen for selecting the type of plant 
+        (may not keep, could have random plant instead)-->
+    </div>
   </body>
 </html>
